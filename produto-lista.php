@@ -1,7 +1,7 @@
 <?php 
 include("cabecalho.php"); 
 include("conectaBD.php"); 
-include("banco-produto.php"); 
+include("banco-produto.php");
 
 if(array_key_exists("removido", $_GET) && $_GET["removido"]=="true"){
 ?>
@@ -17,6 +17,8 @@ if(array_key_exists("removido", $_GET) && $_GET["removido"]=="true"){
 			<th>Nome</th>
 			<th>Preco</th>
 			<th>Descrição</th>
+			<th>Categoria</th>
+			<th>Alterar</th>
 			<th>Remover</th>
 		</tr>
 	</thead>
@@ -34,6 +36,12 @@ if(array_key_exists("removido", $_GET) && $_GET["removido"]=="true"){
 				echo $produto['descricao'];
 			?>	
 		</td>
+		<td><?=$produto['nome_categoria'];?></td>
+		<td>
+			<form action="produto-altera-formulario.php" method="POST">
+				<input type="hidden" name="id" value="<?=$produto['id']?>"/>
+				<input class="btn btn-primary" type="submit" value="O"/>
+			</form>
 		<td>
 			<form action="remove-produto.php" method="POST">
 				<input type="hidden" name="id" value="<?=$produto['id']?>"/>
