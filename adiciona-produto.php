@@ -1,7 +1,8 @@
-<?php include("cabecalho.php"); ?>
-<?php include("conectaBD.php"); ?>
-<?php include("banco-produto.php"); ?>
 <?php 
+	include("cabecalho.php");
+	include("conectaBD.php"); 
+	include("banco-produto.php");
+
 	$nome = $_POST["nome"];
 	$preco = $_POST["preco"];
 	$descricao = $_POST["descricao"];
