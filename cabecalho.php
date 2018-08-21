@@ -1,3 +1,6 @@
+<?php require_once("mostra-alerta.php"); 
+error_reporting(E_ALL ^ E_NOTICE);
+?>
 <html>
 <head>
     <title>Minha loja</title>
@@ -22,7 +25,7 @@
                     	<a class="nav-link active" href="produto-lista.php">Lista Produtos</a>
                     </li>
                     <li>
-                    	<a class="nav-link active" href="#">Sobre</a>
+                    	<a class="nav-link active" href="contato.php">Contato</a>
                     </li>
                 </ul>
             </div>
@@ -34,4 +37,7 @@
     <div class="container">
 
         <div class="principal">
+            <?php   mostraAlerta("success");
+                    mostraAlerta("danger");
+            ?>
     <!-- fim cabecalho.php -->

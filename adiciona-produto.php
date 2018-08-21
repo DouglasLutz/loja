@@ -1,7 +1,9 @@
 <?php 
-	include("cabecalho.php");
-	include("conectaBD.php"); 
-	include("banco-produto.php");
+	require_once("cabecalho.php");
+	require_once("banco-produto.php");
+	require_once("logica-usuario.php");
+
+	retornaEstranhoParaLogin();
 
 	$nome = $_POST["nome"];
 	$preco = $_POST["preco"];
@@ -13,11 +15,11 @@
 	} else {
 		$usado = "false";
 	}
-	
+
 	if(insereProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado)){
 		
 		?> <p>Produto <?php echo $nome; ?> adicionado com sucesso!</p> <?php
-	
+
 	} else {
 
 		$msg = mysqli_error($conexao);
@@ -27,4 +29,4 @@
 
 	mysqli_close($conexao);
 ?>
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>

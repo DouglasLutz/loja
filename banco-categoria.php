@@ -1,4 +1,6 @@
 <?php
+require_once("conectaBD.php");
+
 function listaCategorias($conexao) {
 	$categorias = array();
 

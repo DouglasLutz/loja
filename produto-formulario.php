@@ -1,56 +1,30 @@
-<?php include("cabecalho.php"); 
-include("conectaBD.php");
-include("banco-categoria.php");
+<?php 
+	require_once("cabecalho.php"); 
+	require_once("banco-categoria.php");
+	require_once("logica-usuario.php");
 
-$categorias = listaCategorias($conexao);
+	retornaEstranhoParaLogin();
+
+	$categorias = listaCategorias($conexao);
+
+	//Inicializar os valores das variaveis para criar os campos da tabela vazios
+	$produto = array('nome' => "", 'preco' => "", 'descricao' => "", 'categoria_id' => "1");
+	$usado = "";
 ?>
 
+<h1>Adicionar novo produto</h1>
 
-	<h1>Adicionar novo produto</h1>
+<form action="adiciona-produto.php" method="POST">
+	<table class="table">
+		
+		<?php require_once("campos-tabela-formulario.php") ?>
 
-	<form action="adiciona-produto.php" method="POST">
-		<table class="table">
-			
-			<tr>
-				<td>Nome</td>
-				<td><input class="form-control" type="text" name="nome"/></td>
-	        </tr>
-	        
-	        <tr>
-	        	<td>Preço</td> 
-	        	<td><input class="form-control" type="number" name="preco"/></td>
-			</tr>
+		<tr>
+			<td></td>
+			<td><input class="btn btn-primary" type="submit" value="Cadastrar" /></td>
+		</tr>
 
-			<tr>
-	        	<td>Descrição</td> 
-	        	<td><textarea class="form-control" name="descricao"></textarea></td>
-			</tr>
+	</table>
+</form>
 
-			<tr>
-				<td></td>
-				<td><input type="checkbox" name="usado" value="true"> Usado</td>
-			</tr>
-
-			<tr>
-				<td>Categoria</td>
-				<td>
-					<select class="custom-select" name="categoria_id">
-					<?php foreach($categorias as $categoria) : ?>
-						<option value="<?=$categoria['id']?>">
-							<?=$categoria['nome']?>
-						</option>
-					<?php endforeach ?>
-					</select>
-				</td>
-			</tr>
-
-			<tr>
-				<td></td>
-				<td><input class="btn btn-primary" type="submit" value="Cadastrar" /></td>
-			</tr>
-
-		</table>
-	</form>
-
-
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>

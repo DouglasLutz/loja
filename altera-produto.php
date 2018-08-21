@@ -1,7 +1,6 @@
 <?php 
-    include("cabecalho.php");
-    include("conectaBD.php");
-    include("banco-produto.php"); 
+    require_once("cabecalho.php");
+    require_once("banco-produto.php"); 
 
     $id = $_POST["id"];
     $nome = $_POST["nome"];
@@ -22,4 +21,4 @@
         ?> <p class="text-danger">O produto <?= $nome; ?> não foi alterado: <?= $msg ?></p><?php
     }
   
-include("rodape.php"); ?>
+require_once("rodape.php"); ?>

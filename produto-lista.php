@@ -1,15 +1,8 @@
 <?php 
-include("cabecalho.php"); 
-include("conectaBD.php"); 
-include("banco-produto.php");
+require_once("cabecalho.php"); 
+require_once("banco-produto.php");
 
-if(array_key_exists("removido", $_GET) && $_GET["removido"]=="true"){
-?>
-	<p class="alert-success">Produto apagado com sucesso.</p>
-<?php
-}
-
- $produtos = listaProdutos($conexao); ?>
+$produtos = listaProdutos($conexao); ?>
 
 <table class="table table-bordered table-striped text-center">
 	<thead class="thead-dark">
@@ -54,4 +47,4 @@ if(array_key_exists("removido", $_GET) && $_GET["removido"]=="true"){
 
 </table>
 
-<?php include("rodape.php"); ?>
+<?php require_once("rodape.php"); ?>
