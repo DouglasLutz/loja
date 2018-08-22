@@ -3,12 +3,21 @@
 	require_once("banco-categoria.php");
 	require_once("logica-usuario.php");
 
+	require_once("class/Produto.php");
+  	require_once("class/Categoria.php");
+
 	retornaEstranhoParaLogin();
 
 	$categorias = listaCategorias($conexao);
 
 	//Inicializar os valores das variaveis para criar os campos da tabela vazios
-	$produto = array('nome' => "", 'preco' => "", 'descricao' => "", 'categoria_id' => "1");
+	$produto = new Produto();
+
+	$produto->setNome("");
+	$produto->setPreco("");
+	$produto->setDescricao("");
+	$produto->categoria->setId(1);
+	$produto->setUsado("");
 	$usado = "";
 ?>
 
