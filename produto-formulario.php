@@ -1,21 +1,15 @@
 <?php 
-	require_once("cabecalho.php"); 
-	require_once("banco-categoria.php");
+	error_reporting(E_ALL ^ E_NOTICE);
 	require_once("logica-usuario.php");
-
-	require_once("class/Produto.php");
-  	require_once("class/Categoria.php");
-
 	retornaEstranhoParaLogin();
+	
+	require_once("cabecalho.php"); 
 
-	$categorias = listaCategorias($conexao);
+	$categoriaDao = new CategoriaDao($conexao);
+	$categorias = $categoriaDao->listaCategorias();
 
 	//Inicializar os valores das variaveis para criar os campos da tabela vazios
-	$produto = new Produto();
-
-	$produto->setNome("");
-	$produto->setPreco("");
-	$produto->setDescricao("");
+	$produto = new Produto("", "", "");
 	$produto->categoria->setId(1);
 	$produto->setUsado("");
 	$usado = "";

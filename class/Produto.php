@@ -9,7 +9,10 @@ class Produto {
 	public $categoria;
 	private $usado;
 
-	public function __construct(){
+	public function __construct($nome, $preco, $descricao){
+		$this->nome = $nome;
+		$this->preco = $preco;
+		$this->descricao = $descricao;
 		$this->categoria = new Categoria();
 	}
 
@@ -25,24 +28,12 @@ class Produto {
 		return $this->nome;
 	}
 
-	public function setNome($valor){
-		$this->nome = $valor;
-	}
-
 	public function getPreco(){
 		return $this->preco;
 	}
 
-	public function setPreco($valor){
-		$this->preco = $valor;	
-	}
-
 	public function getDescricao(){
 		return $this->descricao;
-	}
-
-	public function setDescricao($valor){
-		$this->descricao = $valor;
 	}
 
 	public function getUsado(){

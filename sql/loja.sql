@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2018 at 10:11 PM
+-- Generation Time: Aug 23, 2018 at 06:36 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -63,16 +63,9 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`id`, `nome`, `preco`, `descricao`, `categoria_id`, `usado`) VALUES
-(13, 'carro', '20000.00', 'Gol 1.0', 3, 1),
 (14, 'lapis', '2.00', 'Lapis do jorginho', 2, 1),
-(15, 'borracha', '1.00', 'borracha pro jorginho', 2, 1),
-(16, 'relogio', '200.00', 'Relogio com contador de passos', 1, 1),
-(26, 'carro', '200000.00', 'fusca', 2, 0),
-(27, 'oytri', '21312.00', 'sdadsada', 1, 1),
-(28, 'lalala', '203.00', 'OASDKODASK', 2, 1),
-(29, 'dasdas', '21312312.00', 'dasdasdas', 1, 0),
-(30, 'dasdas', '21312312.00', 'dasdasdas', 1, 1),
-(31, 'lapis', '12312.00', 'dasdasd', 2, 1);
+(15, 'borracha', '1.00', 'borracha pro jorginho', 2, 0),
+(36, 'livro', '20.00', 'novo livro', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -130,7 +123,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `usuarios`

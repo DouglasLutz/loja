@@ -1,18 +1,15 @@
 <?php 
-    require_once("cabecalho.php");
-    require_once("banco-categoria.php");
-    require_once("banco-produto.php");
+    error_reporting(E_ALL ^ E_NOTICE);
     require_once("logica-usuario.php");
-
-    require_once("class/Produto.php");
-    require_once("class/Categoria.php");
-
     retornaEstranhoParaLogin();
+    
+    require_once("cabecalho.php");
 
-    $id = $_POST['id'];
-    $produto = buscaProduto($conexao, $id);
+    $produtoDao = new ProdutoDao($conexao);
+    $categoriaDao = new CategoriaDao($conexao);
 
-    $categorias = listaCategorias($conexao);
+    $produto = $produtoDao->buscaProduto($_POST['id']);
+    $categorias = $categoriaDao->listaCategorias();
 
     $usado = $produto->getUsado() ? "checked='checked'" : "";
 ?>

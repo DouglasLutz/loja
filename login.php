@@ -1,14 +1,16 @@
 <?php 
-require_once("banco-usuario.php");
+require_once("cabecalho.php");
 require_once("logica-usuario.php");
 
-$usuario = buscaUsuario($conexao, $_POST['email'], $_POST['senha']);
+$usuarioDao = new UsuarioDao($conexao);
+$usuario = new Usuario($_POST['email'], $_POST['senha']);
 
-if($usuario == null){
-	$_SESSION["danger"] = "Usuário ou senha inválido";
+
+if($usuarioDao->buscaUsuario($usuario)){
+	logaUsuario($usuario->getEmail());
 	header("Location: index.php");
 } else {
-	logaUsuario($usuario["email"]);
+	$_SESSION["danger"] = "Usuário ou senha inválido";
 	header("Location: index.php");
 }
 

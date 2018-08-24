@@ -14,8 +14,9 @@ require_once("logica-usuario.php");
 <div class="container text-light bg-dark w-50 p-2">
 	<h2>Login</h2>
 
-	<form action="login.php" method="POST">
-		<table class="table text-light">
+	
+	<table class="table text-light">
+		<form action="login.php" method="POST">
 			<tr>
 				<td>Email</td>
 				<td><input class="form-control" type="email" name="email" required="true"/></td>
@@ -26,10 +27,17 @@ require_once("logica-usuario.php");
 			</tr>
 			<tr>
 				<td></td>
-				<td><input class="btn btn-primary form-control" type="submit" value="Logar"></td>
+				<td><input class="btn btn-primary form-control" type="submit" value="Logar"/></td>
 			</tr>
-		</table>
-	</form>
+		</form>
+		<form action="formulario-usuario.php" method="POST">
+			<tr>
+				<td><p>Não é usuário?</p></td>
+				<td><input class="btn btn-secondary form-control" type="submit" value="Criar nova conta"/></td>
+			</tr>
+		</form>
+	</table>
+	
 </div>
 <?php } ?>
 

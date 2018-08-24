@@ -1,5 +1,11 @@
-<?php require_once("mostra-alerta.php"); 
+<?php 
 error_reporting(E_ALL ^ E_NOTICE);
+require_once("mostra-alerta.php"); 
+require_once("conectaBD.php");
+require_once("logica-usuario.php");
+
+require_once("auto-register.php");
+
 ?>
 <html>
 <head>
@@ -18,9 +24,13 @@ error_reporting(E_ALL ^ E_NOTICE);
             </div>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li>
-                    	<a class="nav-link active" href="produto-formulario.php">Adiciona Produto</a>
-                    </li>
+                    
+                    <?php if(usuarioEstaLogado()) : ?>
+                        <li>
+                        	<a class="nav-link active" href="produto-formulario.php">Adiciona Produto</a>
+                        </li>
+                    <?php endif ?>
+                    
                     <li>
                     	<a class="nav-link active" href="produto-lista.php">Lista Produtos</a>
                     </li>
