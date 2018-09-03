@@ -12,7 +12,7 @@ require_once("auto-register.php");
     <title>Minha loja</title>
     <meta charset="utf-8">
     <link href="css/reset.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/loja.css" rel="stylesheet" />
 </head>
 

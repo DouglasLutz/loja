@@ -1,5 +1,6 @@
 <?php 
-require_once("cabecalho.php");
+require_once("auto-register.php");
+require_once("conectaBD.php");
 require_once("logica-usuario.php");
 
 $usuarioDao = new UsuarioDao($conexao);
