@@ -5,11 +5,6 @@ require_once("logica-usuario.php");
 
 <h1>Bem vindo!</h1>
 
-<?php if(usuarioEstaLogado()) {?>
-	<p class="text-success">Você está logado como <?=usuarioLogado()?></p>
-	<a href="logout.php" class="btn btn-primary">Logout</a>
-<?php } ?>
-
 <?php if(!usuarioEstaLogado()) {?>
 <div class="container text-light bg-dark w-50 p-2">
 	<h2>Login</h2>

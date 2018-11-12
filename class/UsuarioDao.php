@@ -23,4 +23,21 @@ class UsuarioDao {
 		return mysqli_fetch_assoc($resultado);
 	}
 
+	function alteraSenhaUsuario($email, $senha_antiga, $senha_nova){
+		$email = mysqli_real_escape_string($this->conexao, $email);
+		$query = "select senha from usuarios where email='{$email}'";
+
+		$resultado = mysqli_query($this->conexao, $query);
+		$resultado = mysqli_fetch_assoc($resultado);
+
+		if($resultado['senha'] == md5($senha_antiga)){
+			$senha_nova = md5($senha_nova);
+			$query = "update usuarios set senha='{$senha_nova}' where email='{$email}'";
+
+			return mysqli_query($this->conexao, $query);
+		}
+		
+		return NULL;
+	}
+
 }

@@ -17,10 +17,10 @@
     $produtoDao = new ProdutoDao($conexao);
 
     if($produtoDao->alteraProduto($produto)) { 
-        ?> <p class="text-success">O produto <?= $produto->getNome(); ?>, <?= $preco; ?> alterado com sucesso!</p><?php 
+        $_SESSION['']
+        header("Location: index.php");
     } else {
-        $msg = mysqli_error($conexao);
-        ?> <p class="text-danger">O produto <?= $produto->nome; ?> não foi alterado: <?= $msg ?></p><?php
+        header("Location: index.php");
     }
   
 require_once("rodape.php"); ?>
