@@ -25,4 +25,13 @@ class CategoriaDao {
 
 		return $categorias;
 	}
+
+	function insereCategoria(Categoria $categoria) {
+		$nome = mysqli_real_escape_string($this->conexao, $categoria->getNome());
+
+	    $query = "insert into categorias (nome) value ('{$nome}')";
+
+	    $resultadoDaInsercao = mysqli_query($this->conexao, $query);
+	    return $resultadoDaInsercao;
+	}
 }

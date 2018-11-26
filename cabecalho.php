@@ -23,12 +23,12 @@ require_once("auto-register.php");
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <?php if(usuarioEstaLogado()) : ?>
+                    <?php if(usuarioEhAdmin()) : ?>
                         <li>
-                        	<a class="nav-link active" href="produto-formulario.php">Adiciona Produto</a>
+                        	<a class="nav-link active" href="produto-controle.php">Controle de produtos</a>
                         </li>
                     <?php endif ?>
-                    
+
                     <li>
                     	<a class="nav-link active" href="produto-lista.php">Lista Produtos</a>
                     </li>

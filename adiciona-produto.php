@@ -2,7 +2,7 @@
 	require_once("cabecalho.php");
 	require_once("logica-usuario.php");
 
-	retornaEstranhoParaLogin();
+	retornaClienteParaHome();
 
 	$produto = new Produto($_POST["nome"], $_POST["preco"], $_POST["descricao"]);
 	$produto->categoria->setId($_POST["categoria_id"]);

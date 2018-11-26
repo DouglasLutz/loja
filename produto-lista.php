@@ -14,7 +14,7 @@
 			<th>Descrição</th>
 			<th>Categoria</th>
 			
-			<?php if(usuarioEstaLogado()) : ?>
+			<?php if(usuarioEhAdmin()) : ?>
 				<th>Alterar</th>
 				<th>Remover</th>
 			<?php endif?>
@@ -36,7 +36,7 @@
 			?>	
 		</td>
 		<td><?=$produto->categoria->getNome();?></td>
-		<?php if(usuarioEstaLogado()) : ?>
+		<?php if(usuarioEhAdmin()) : ?>
 			<td>
 				<form action="produto-altera-formulario.php" method="POST">
 					<input type="hidden" name="id" value="<?=$produto->getId()?>"/>

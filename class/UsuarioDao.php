@@ -16,7 +16,7 @@ class UsuarioDao {
 
 	function buscaUsuario($usuario){
 		$email = mysqli_real_escape_string($this->conexao, $usuario->getEmail());
-		$query = "select email, senha from usuarios where email='{$email}' and senha='{$usuario->getSenhaMd5()}'";
+		$query = "select id, email, eh_admin from usuarios where email='{$email}' and senha='{$usuario->getSenhaMd5()}'";
 
 		$resultado = mysqli_query($this->conexao, $query);
 
