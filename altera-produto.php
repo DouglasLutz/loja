@@ -17,9 +17,11 @@
     $produtoDao = new ProdutoDao($conexao);
 
     if($produtoDao->alteraProduto($produto)) { 
-        $_SESSION['']
+        $_SESSION['success'] = "Produto alterado com sucesso";
         header("Location: index.php");
     } else {
+        $msg = mysqli_error($conexao);
+        $_SESSION["danger"] = "Erro ao alterar produto, tente novamente (Erro {$msg})";
         header("Location: index.php");
     }
   

@@ -9,7 +9,8 @@
 	if($usuarioDao->insereUsuario($usuario)){
 		$_SESSION["success"] = "Usuario criado com sucesso";
 	} else {
-		$_SESSION["danger"] = "Erro ao cadastrar usuario, tente novamente";
+		$msg = mysqli_error($conexao);
+		$_SESSION["danger"] = "Erro ao cadastrar usuario, tente novamente (Erro {$msg})";
 	}
 
 	header("Location: index.php");

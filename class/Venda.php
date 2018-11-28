@@ -1,25 +1,29 @@
 <?php 
 
-include("ItemVenda.php");
+require_once("ItemVenda.php");
 
 class Venda{
 	public $itens;
 
 	function __construct(){
-		$produtos = array();
+		$this->itens = array();
 	}
 
-	function adicionaItens(ItemVenda $itemVenda){
-		array_push($itens, $itemVenda);
+	function adicionaItem(ItemVenda $itemVenda){
+		array_push($this->itens, $itemVenda);
 	}
 
 	function calculaValorTotal(){
 		$total = 0;
 
-		foreach ($itens as $itemVenda) {
-			$total += $itemVenda->produto->valor * $itemVenda->quantidade;
+		foreach ($this->itens as $itemVenda) {
+			$total += $itemVenda->produto->getPreco() * $itemVenda->quantidade;
 		}
 
 		return $total;
+	}
+
+	function getVendasCliente($id_cliente){
+		
 	}
 }

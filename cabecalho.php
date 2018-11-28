@@ -52,8 +52,11 @@ require_once("auto-register.php");
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <?php if(usuarioEstaLogado()):?>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="carrinho.php">Meu carrinho</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="formulario-altera-senha.php"><?=usuarioLogado()?></a>
+                        <a class="nav-link" href="painel-usuario.php"><?=usuarioLogado()?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="logout.php">Logout</a>

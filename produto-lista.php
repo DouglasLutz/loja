@@ -5,19 +5,20 @@
 	$produtos = $produtoDao->listaProdutos(); 
 ?>
 
-<table class="table table-bordered table-striped text-center">
+<table class="table table-striped text-center">
 	<thead class="thead-dark">
 		<tr>
 			<th>Nome</th>
 			<th>Preco</th>
-			<th>Preco com desconto</th>
 			<th>Descrição</th>
 			<th>Categoria</th>
 			
-			<?php if(usuarioEhAdmin()) : ?>
+			<?php if(usuarioEstaLogado()): ?>
+				<th>Adicionar ao carrinho</th>
+			<?php endif; if(usuarioEhAdmin()) : ?>
 				<th>Alterar</th>
 				<th>Remover</th>
-			<?php endif?>
+			<?php endif; ?>
 		</tr>
 	</thead>
 
@@ -26,7 +27,6 @@
 	<tr>
 		<td><?=$produto->getNome();?></td>
 		<td><?=$produto->getPreco();?></td>
-		<td><?=$produto->precoComDesconto(0.2)?></td>
 		<td>
 			<?php 
 			if(strlen($produto->getDescricao()) > 40)
@@ -36,11 +36,18 @@
 			?>	
 		</td>
 		<td><?=$produto->categoria->getNome();?></td>
-		<?php if(usuarioEhAdmin()) : ?>
+		<?php if(usuarioEstaLogado()): ?>
+			<td>
+				<form action="confirmacao-compra.php" method="POST">
+					<input type="hidden" name="id" value="<?=$produto->getId()?>"/>
+					<input class="btn btn-primary" type="submit" value="Adicionar"/>
+				</form>
+			</td>
+		<?php endif; if(usuarioEhAdmin()): ?>
 			<td>
 				<form action="produto-altera-formulario.php" method="POST">
 					<input type="hidden" name="id" value="<?=$produto->getId()?>"/>
-					<input class="btn btn-primary" type="submit" value="Alterar"/>
+					<input class="btn btn-warning" type="submit" value="Alterar"/>
 				</form>
 			<td>
 				<form action="remove-produto.php" method="POST">
@@ -48,7 +55,8 @@
 					<input class="btn btn-danger" type="submit" value="Remover"/>
 				</form>
 			</td>
-		<?php endif ?>
+
+		<?php endif; ?>
 	</tr>
 	
 	<?php endforeach; ?>
